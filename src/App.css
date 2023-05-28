@@ -1,38 +1,83 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Roboto", sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.flex {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  /* gap: 1rem; */
+}
+
+.grid {
+  display: grid;
+  /* gap: 0.4rem; */
+}
+
+/* ===== coloring ===== */
+
+:root {
+  --color-blue: blue;
+  --color-black: black;
+  --color-red: red;
+  --color-text: #fff;
+  --body-bg: #000000;
+}
+
+.container {
+  /* margin: auto; */
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  min-height: 100vh;
+  /* background-image: linear-gradient(200deg, white, blue); */
+  box-shadow: 0 8px 50px -7px black;
+  background: #b6bdc6;
 }
 
-.App-link {
-  color: #61dafb;
+/* ==== main section ==== */
+
+.cal {
+  border: solid 2px;
+  width: 400px;
+  padding: 0.3rem;
+  gap: 0.2rem;
+  /* width: 50vw; */
+  background: var(--body-bg);
+  border-radius: 1rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas: "result result result result" "ac c mod divide" "seven eight nine multiply" "four five six sub" "one two three add" "zero decimal equal equal";
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.cal div {
+  height: 70px;
+  background: #2e3a4a;
+  text-align: center;
+  color: var(--color-text);
+  /* margin: 1rem; */
+  padding: 1rem;
+}
+
+.cal .result {
+  text-align: right;
+  grid-area: result;
+}
+
+.ac {
+  color: rgb(255, 255, 0) !important;
+}
+
+.equal {
+  grid-area: equal;
+}
+
+.cal :not(:first-child):hover {
+  cursor: pointer;
+  background: black;
+  transform: 1.2s;
 }
