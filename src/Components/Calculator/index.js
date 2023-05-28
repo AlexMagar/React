@@ -134,6 +134,23 @@ export const Calculator = ()=>{
              return;
         };
 
+
+        //check for decimal nunber
+        if(value == "."){
+            if(latestOperator){
+                const operatorIndex = displayValue.lastIndexOf(latestOperator);
+                const numberAfterOperators = displayValue.slice(operatorIndex);
+
+                if(numberAfterOperators.includes(".")){
+                    return;
+                }
+            }
+
+            if(!latestOperator && displayValue.includes(".")){
+                return;
+            }
+        }
+
         setDisplayValue(displayValue + value);
     }
     return(
